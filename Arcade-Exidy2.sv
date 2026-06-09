@@ -302,8 +302,7 @@ assign USER_OUT = USER_OUT_DRIVE;
 //   Coin B   <- 0          (single-player board; Coin A suffices)
 //   Pause    <- Y    [8]   (spare face button)
 wire [15:0] joystick_0 = joydb_1ena ? (OSD_STATUS ? 16'b0 :
-    {3'b0, joydb_1[8], 1'b0, joydb_1[11], joydb_1[9], joydb_1[10],
-     joydb_1[7], joydb_1[6], joydb_1[5], joydb_1[4], joydb_1[3:0]}) : joystick_0_USB;
+    joydb_1_mapped[12:0]) : joystick_0_USB;
 // [MiSTer-DB9-Pro END]
 
 wire [21:0] gamma_bus;
